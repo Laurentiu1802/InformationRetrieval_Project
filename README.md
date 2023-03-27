@@ -1,6 +1,9 @@
 # InformationRetrieval_Project
 My first project in python for accessing and retrieve information from documents
 
+main.py represents the main code , and myFunction.py represents the functions I made and used
+to simplify some things for me. Still needs optimization.
+
   The first part represents extraction of the attributes . At this step I read the xml files from
 my directory and extract the text from title tags , p (paragraphs) tags and code tags ( which refers
 to the topics of the documents so I can classify them later). In this phase I store the text extracted
