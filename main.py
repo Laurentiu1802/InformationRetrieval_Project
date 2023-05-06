@@ -1,4 +1,3 @@
-import pandas as pd #package folosit pentru lucrul cu datele din fisier , nu cred ca o sa o folosesc dar sa fie
 import numpy as np  #librarie pt a lucra cu array
 import os           # modul pentru care detine functii pentru a interactiona cu SO in cazul in care lucram cu fisiere
 import glob         #modul folosit pentru a cauta fisiere care se potrivesc unui pattern specific
@@ -10,7 +9,7 @@ import myFunctions
 
 ps=PorterStemmer()
 
-path_to_give="D:\School\Sem2\Regasirea informatiei\Reuters\Reuters_34\Training\*.XML" #D:\School\Sem2\Regasirea informatiei\Reuters\Reuters_7083
+path_to_give="D:\School\Sem2\Regasirea informatiei\Reuters\Reuters_34\Testing\*.XML" #D:\School\Sem2\Regasirea informatiei\Reuters\Reuters_7083
 read_files=glob.glob(path_to_give) #se citesc fisirele xml din folderul Testing
 read_stop_words=open("D:\School\Sem2\Regasirea informatiei\stopwords.txt","r") 
 
@@ -79,14 +78,14 @@ for index in range(len(word_dictionary)):
 #adaugam fiecare cuvant in lista globala de cuvinte
 for x in range(len(dictionary)):
     for word in dictionary[x]:
-        if word not in global_words_array:
+        if word not in global_words_array  and word.isalpha() and len(word)>2 :
             global_words_array.append(word)
 
 #aducem documentele la aceeasi dimensiune
-for x in range(len(dictionary)):
-    for words in global_words_array:
-        if words not in dictionary[x]:
-            dictionary[x][words]=0
+#for x in range(len(dictionary)):
+#    for words in global_words_array:
+#        if words not in dictionary[x]:
+#            dictionary[x][words]=0
 
 #sortam documentele
 documents=[]
@@ -100,13 +99,13 @@ for d in documents:
     for word,freq in d.items():
         if word in global_words_array:
             updated_dict[global_words_array.index(word)]=freq # se creeaza din nou perechea key-value cu indexul cuvantului din 
-        else:                                                   #lista de cuvinte globale si ii se atribuie valoarea din fosta lista de frecvente
-            updated_dict[word]=freq                               
+       # else:                                                   #lista de cuvinte globale si ii se atribuie valoarea din fosta lista de frecvente
+        #    updated_dict[word]=freq                               
     d.clear()
     d.update(updated_dict)
 
 #print(attributes)  
-#print(documents)
+print(documents)
 #print("********************************")
 #print(global_words_array)
 #print("*********************************")

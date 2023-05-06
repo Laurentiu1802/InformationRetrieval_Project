@@ -1,4 +1,3 @@
-import pandas as pd #package folosit pentru lucrul cu datele din fisier , nu cred ca o sa o folosesc dar sa fie
 import numpy as np  #librarie pt a lucra cu array
 import os           # modul pentru care detine functii pentru a interactiona cu SO in cazul in care lucram cu fisiere
 import glob         #modul folosit pentru a cauta fisiere care se potrivesc unui pattern specific
@@ -45,6 +44,7 @@ def get_directory(file_path):
     firedir=os.path.basename(os.path.dirname(file_path))
     return firedir
 
+
 def write_output_into_txt_file(global_words_list,documents_list,attribute_list,directory_name):
     try:
         with open("d:/School/Sem2/Regasirea informatiei/output.txt","w") as file:
@@ -59,4 +59,5 @@ def write_output_into_txt_file(global_words_list,documents_list,attribute_list,d
     except Exception as e:
         print("Error: ", e)
 
-    
+
+
