@@ -1,5 +1,5 @@
 # InformationRetrieval_Project
-My first project in python for accessing and retrieve information from documents
+My first project in python for accessing and retrieve information from xml files.
 
 main.py represents the main code , and myFunction.py represents the functions I made and used
 to simplify some things for me. Still needs optimization.
